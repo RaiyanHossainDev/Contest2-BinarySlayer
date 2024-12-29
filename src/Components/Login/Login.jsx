@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import sideImg from '../../assets/images/login-img.png'
 import { LuEye, LuEyeClosed } from 'react-icons/lu'
 import { BiSolidError } from 'react-icons/bi'
+import logo from '../../assets/images/Logoo.png'
 
 
 const Login = () => {
@@ -56,6 +57,7 @@ const Login = () => {
 
   return (
     <section id='login'>
+      <img src={logo} width={'250px'} className='mb-[25px]' alt="" />
       <div className="login">
         <div className="login_head">
           <h2>Welcome back! </h2>
