@@ -1,0 +1,68 @@
+#banner{
+    @apply
+    mt-[50px]
+}
+.banner-row{
+    @apply
+    px-[200px]
+}
+.banner-single-slide{
+    @apply
+    w-[900px]
+    h-[550px]
+    relative
+}
+.banner-single-slide img{
+    @apply
+    absolute
+    w-full
+    h-full
+}
+.banner-single-slide2{
+    @apply
+    w-[790px]
+    h-[550px]
+    relative
+}
+.banner-single-slide2 img{
+    @apply
+    absolute
+    w-full
+    h-full
+}
+.service{
+    @apply
+    mt-[60px]
+    py-[50px]
+    bg-[#F2F8FD]
+}
+.service-row{
+    @apply
+    flex
+    justify-between
+}
+.service-card{
+    @apply
+    w-[300px]
+}
+.service-card .service-head{
+    @apply
+    font-Poppins
+    font-semibold
+    text-[24px]
+    flex
+    gap-[20px]
+    text-[#222222]
+    items-center
+    pb-[10px]
+}
+.service-card p{
+    @apply
+    font-Poppins
+    font-normal
+    text-[16px]
+    flex
+    gap-[20px]
+    text-[#666666]
+    items-center
+}

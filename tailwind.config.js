@@ -7,9 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brandColor': '#0D47A1',
+        'brandColor': '#0071DC',
+        'brandColorLight': '#AAD5FF',
         'secendary' : '#FF5722',
-        'highLight' : '#CDDC39'
+        'highLight' : '#CDDC39',
+        'brandBg' : '#F2F8FD'
       },
     },
     container: {
@@ -23,9 +25,8 @@ export default {
       },
     },
     fontFamily: {
-      'monster' : ["Montserrat", "serif"],
-      'roboto'  : ["Roboto", "serif"],
-      'tail'    : ["Yellowtail", "serif"],
+      'Playfair' : ["Playfair Display", "serif"],
+      'Poppins' : ["Poppins", "serif"],
     },
   },
   plugins: [],
