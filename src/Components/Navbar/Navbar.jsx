@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import { Link} from 'react-router-dom'
 import { FiSearch } from 'react-icons/fi'
@@ -7,6 +7,9 @@ import { FaRegHeart } from 'react-icons/fa'
 import { RiAccountCircle2Line } from 'react-icons/ri'
 
 const Navbar = () => {
+    // ===================== custom useStates
+    const [searchBarShow,setSearchBarShow] = useState(false)
+
   return (
     <nav id='nav'>
         <div className="container">
@@ -14,9 +17,13 @@ const Navbar = () => {
                 {/* ================= logo and searchBar start =========== */}
                 <div className=' flex gap-16 items-center'>
                     <div className="menu_logo">
-                        <Link to={'/'}><img src="images/Logoo.png" width={`160px`} alt="" /></Link>
+                        <Link className=' hidden sm:block' to={'/'}><img src="images/Logoo.png" width={`160px`} alt="" /></Link>
                     </div>
-                    <div className="searchBar">
+                    <div className="searchBar searchBar1">
+                        <input type="text" />
+                        <button><FiSearch /></button>
+                    </div>
+                    <div className={`searchBar searchBar2 ${searchBarShow?'left-[50%]':'left-[-70%]'} transition-all`}>
                         <input type="text" />
                         <button><FiSearch /></button>
                     </div>
@@ -26,7 +33,7 @@ const Navbar = () => {
                 {/* ================= Login and Register start =========== */}
                 <div className="authBar">
                     <Link to={'/auth/register'}
-                        class="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-white bg-green-800 rounded-md group"
+                        class="relative inline-flex items-center justify-center px-4 lg:px-8 py-[7px] lg:py-2.5 overflow-hidden tracking-tighter text-white bg-green-800 rounded-md group"
                         >
                         <span
                             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-orange-600 rounded-full group-hover:w-56 group-hover:h-56"
@@ -62,10 +69,10 @@ const Navbar = () => {
                         <span
                             class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-green-200"
                         ></span>
-                        <span class="relative text-base font-semibold">Register</span>
+                        <span class="relative text-[15px] lg:text-base font-semibold">Register</span>
                     </Link>
                     <Link to={'/auth/login'}
-                        class="relative inline-flex items-center justify-center px-8 py-2.5 overflow-hidden tracking-tighter text-white bg-orange-800 rounded-md group"
+                        class="relative inline-flex items-center justify-center px-4 lg:px-8 py-[7px] lg:py-2.5 overflow-hidden tracking-tighter text-white bg-orange-800 rounded-md group"
                         >
                         <span
                             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-600 rounded-full group-hover:w-56 group-hover:h-56"
@@ -101,13 +108,14 @@ const Navbar = () => {
                         <span
                             class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-orange-200"
                         ></span>
-                        <span class="relative text-base font-semibold">Login</span>
+                        <span class="relative text-[15px] lg:text-base font-semibold">Login</span>
                     </Link>
                 </div>
                 {/* ================= Login and Register end// =========== */}
 
                 {/* ================= buttons start ====================== */}
                 <div className="mneu_buttons">
+                    <button onClick={()=>setSearchBarShow(!searchBarShow)}><FiSearch/></button>
                     <Link to='/' ><CiShoppingCart /><span>0</span></Link>
                     <Link to='/' ><FaRegHeart /><span>0</span></Link>
                     <Link to='/' ><RiAccountCircle2Line /></Link>

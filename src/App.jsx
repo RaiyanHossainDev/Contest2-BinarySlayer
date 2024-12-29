@@ -6,6 +6,7 @@ import Home from './Pages/Home'
 import Login from './Components/Login/Login'
 import Register from './Components/Register/Register'
 import LayoutAuth from './Layout/LayoutAuth'
+import app from './firebase.config'
 
 function App() {
   const router = createBrowserRouter(
