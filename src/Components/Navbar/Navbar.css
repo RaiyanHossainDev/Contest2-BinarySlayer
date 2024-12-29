@@ -1,39 +1,54 @@
 #nav {
-    @apply bg-brandColor py-2
+    @apply bg-brandColor py-4
 }
 #nav .menu_row {
     @apply flex justify-between items-center
+    gap-2
+    relative
 }
 .menu_row .searchBar {
-    @apply overflow-hidden rounded-xl flex
-    w-[500px] border-gray-500 border-[2px]
+    @apply overflow-hidden rounded-xl bg-brandColor md:bg-white
+    sm:w-[300px] lg:w-[500px] border-gray-500 border-[2px] 
+}
+.menu_row .searchBar1 {
+    @apply hidden md:flex
+}
+.menu_row .searchBar2 {
+    @apply md:hidden flex text-white font-monster
+    absolute top-[75px] translate-x-[-50%]
 }
 .menu_row .searchBar input {
-    @apply h-[35px] w-[450px] border-none outline-none
+    @apply h-[35px] md:w-[175px] lg:w-[426px] border-none outline-none bg-transparent
     pl-4
 }
 .menu_row .searchBar button {
-    @apply  bg-secendary px-[30px]
+    @apply  bg-secendary md:px-[16px] lg:px-[25px] 
     text-[20px] text-white font-bold
     transition-all duration-[.3s] hover:bg-highLight
+}
+.menu_row .searchBar2 button {
+    @apply py-[10px] px-[20px]
 }
 
 /* ==================//////////////================== */
 .menu_row .authBar {
-    @apply flex gap-4
+    @apply flex gap-4 items-center
 }
 /* ================////////////////////////============= */
 
 
 .menu_row .mneu_buttons {
-    @apply flex gap-4 items-center
+    @apply flex gap-1 sm:gap-4 items-center
 }
 .menu_row .mneu_buttons a {
-    @apply text-white text-[25px]
+    @apply text-white text-[25px] lg:text-[25px]
     relative
 }
 .menu_row .mneu_buttons a span {
     @apply w-[25px] h-[25px] bg-secendary rounded-full
     inline-block text-[15px] text-center
     absolute top-[-27px] left-[10px]
+}.menu_row .mneu_buttons button {
+    @apply text-white text-[18px]
+    md:hidden
 }
