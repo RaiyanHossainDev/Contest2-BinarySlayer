@@ -1,0 +1,39 @@
+#nav {
+    @apply bg-brandColor py-2
+}
+#nav .menu_row {
+    @apply flex justify-between items-center
+}
+.menu_row .searchBar {
+    @apply overflow-hidden rounded-xl flex
+    w-[500px] border-gray-500 border-[2px]
+}
+.menu_row .searchBar input {
+    @apply h-[35px] w-[450px] border-none outline-none
+    pl-4
+}
+.menu_row .searchBar button {
+    @apply  bg-secendary px-[30px]
+    text-[20px] text-white font-bold
+    transition-all duration-[.3s] hover:bg-highLight
+}
+
+/* ==================//////////////================== */
+.menu_row .authBar {
+    @apply flex gap-4
+}
+/* ================////////////////////////============= */
+
+
+.menu_row .mneu_buttons {
+    @apply flex gap-4 items-center
+}
+.menu_row .mneu_buttons a {
+    @apply text-white text-[25px]
+    relative
+}
+.menu_row .mneu_buttons a span {
+    @apply w-[25px] h-[25px] bg-secendary rounded-full
+    inline-block text-[15px] text-center
+    absolute top-[-27px] left-[10px]
+}
