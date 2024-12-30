@@ -23,6 +23,15 @@
     hover:shadow-lg
     hover:shadow-brandColorLight
 }
+.product-card:hover .product-img img{
+    @apply
+    scale-[110%]
+}
+.product-card .product-img img{
+    @apply
+    transition-all
+    duration-300
+}
 .product-img{
     @apply
     w-full
@@ -34,6 +43,7 @@
     relative
     overflow-hidden
     mb-[10px]
+    transition-all
 }
 .product-card img{
     @apply
