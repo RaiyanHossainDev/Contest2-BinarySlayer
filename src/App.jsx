@@ -7,6 +7,7 @@ import Login from './Components/Login/Login'
 import Register from './Components/Register/Register'
 import LayoutAuth from './Layout/LayoutAuth'
 import app from './firebase.config'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const router = createBrowserRouter(
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer />
     </>
   )
 }

@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './Login.css'
 import { MdLockOutline, MdMailOutline } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sideImg from '../../assets/images/login-img.png'
 import { LuEye, LuEyeClosed } from 'react-icons/lu'
 import { BiSolidError } from 'react-icons/bi'
 import logo from '../../assets/images/Logoo.png'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Bounce, toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+import { userData } from '../../slice/userSlice'
+import Sound from '../../assets/sound/error.mp3'
+
 
 
 const Login = () => {
@@ -13,11 +19,23 @@ const Login = () => {
   const [input,setInput]         = useState({email:'',pass:''})
   const [iconColor,setIconColor] = useState({emailColor:'text-[#121826]',passColor:'text-[#121826]',buttonColor:'bg-[#121826]',buttonTextColor:'text-[#6C727F]'})
   const [eye,setEye]             = useState(false)
-  const [error,setError]         = useState({email:'transparent',password:'transparent',auth:false})
-
+  const [error,setError]         = useState({email:'transparent',password:'transparent',Auth:false})
+  const navigator = useNavigate()
   
+  // ============== Redux variables
+  const dispatcher = useDispatch()
+
+  // ============== Firebase variables
+  const auth = getAuth();
+
 
   // ============================ All Functions
+  // ============== sound function
+  const playErrorSound = ()=>{
+    const sound = new Audio(Sound)
+    sound.volume = .6
+    sound.play()
+  }
   // ============== Login Function
   let handleLogin = (e)=>{
     // ====== prevnting default
@@ -28,7 +46,47 @@ const Login = () => {
     }else if(input.pass == ''){
       setError((prev)=>({...prev,password:'red'}))
     }else{
-      // ========================= 
+      // ================ Login in
+      signInWithEmailAndPassword(auth, input.email, input.pass)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (user.emailVerified == true) {
+            setError((prev)=>({...prev,Auth:false}))
+            navigator('/')
+            toast.success('Login Successfull !', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              transition: Bounce,
+              });
+              localStorage.setItem("user",JSON.stringify(user))
+              dispatcher(userData(user))
+          }else{
+            toast.error('Email is not verified', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              transition: Bounce,
+              });
+              playErrorSound()
+          }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        if (errorCode) {
+          setError((prev)=>({...prev,Auth:true}))
+        }
+      });
     }
   }
 
@@ -54,7 +112,7 @@ const Login = () => {
     }
   },[input])
 
-
+  
   return (
     <section id='login'>
       <img src={logo} width={'250px'} className='mb-[25px]' alt="" />
@@ -67,7 +125,7 @@ const Login = () => {
           <div className="userBox">
             {/* =============== Error ============ */}
             {
-              error.auth&&
+              error.Auth&&
               <div className="errorBox">
                 <BiSolidError />
                 <h2>Incorrect username or password!</h2>
