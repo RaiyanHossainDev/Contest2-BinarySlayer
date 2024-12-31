@@ -25,6 +25,7 @@
     shadow-gray-400
     overflow-hidden
     mb-[40px]
+    ml-[10px]
 }
 .category-card img{
     @apply

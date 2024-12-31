@@ -57,6 +57,15 @@ return (
                             <div className="round"></div>
                         </div>
                     </div>
+                    <div className='category-wrap'>
+                        <div className="category-card">
+                            <div className="category-overlay">
+                                <Link to={"#"}>Cars</Link>
+                            </div>
+                            <img src="images/category5.png" alt="category" />
+                            <div className="round"></div>
+                        </div>
+                    </div>
                 </Slider>
             </div>
         </div>
