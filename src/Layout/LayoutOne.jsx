@@ -8,14 +8,6 @@ const LayoutOne = () => {
   const currentUser = useSelector(state=>state.currentUser.value)
   const navigator = useNavigate()
 
-
-
-  useEffect(()=>{
-    if (currentUser == null) {
-      navigator('/auth/login')
-    }
-  },[])
-  
   return (
     <div>
         <Navbar/>

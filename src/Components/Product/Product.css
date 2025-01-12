@@ -85,7 +85,7 @@
     text-green-500
     mb-[8px]
 }
-.product-body button{
+.product-body button a{
     @apply
     font-Poppins
     font-normal
