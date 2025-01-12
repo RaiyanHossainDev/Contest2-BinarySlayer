@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import Navbar from '../Components/Navbar/Navbar'
 import { useSelector } from 'react-redux'
+import Footer from '../Components/Footer/Footer'
 
 const LayoutOne = () => {
   // ============ variables
@@ -12,9 +13,10 @@ const LayoutOne = () => {
   return (
     <div>
         <Navbar/>
-        <div className="mt-[180px]">
+        <div className="my-[180px]">
           <Outlet/>
         </div>
+        <Footer/>
     </div>
   )
 }

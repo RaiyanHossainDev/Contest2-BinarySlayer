@@ -51,7 +51,7 @@ const Navbar = () => {
                     {/* ================= logo and searchBar start =========== */}
                     <div className=' flex gap-16 items-center'>
                         <div className="menu_logo">
-                            <Link className='text-2xl font-Poppins font-bold text-secendary hidden sm:block' to={'/'}>Molts</Link>
+                            <Link className='text-2xl font-Poppins font-bold text-secendary hidden sm:block' to={'/'}> <img src="images/logo.png" alt="" /> </Link>
                         </div>
                         <form onSubmit={handleSearch} className="searchBar searchBar1">
                             <input type="text" onChange={(e) => setSearchInput(e.target.value)} placeholder='Search anything here' />

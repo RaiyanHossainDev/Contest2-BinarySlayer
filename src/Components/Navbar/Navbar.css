@@ -6,6 +6,10 @@
     gap-2
     relative
 }
+#nav .menu_row .menu_logo a img {
+    @apply w-[140px]
+}
+
 .menu_row .searchBar {
     @apply overflow-hidden rounded-full bg-brandColor md:bg-white
     sm:w-[300px] lg:w-[500px] py-[12px] pl-[10px]
