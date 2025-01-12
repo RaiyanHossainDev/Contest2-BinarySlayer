@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './Register.css'
 import { MdLockOutline, MdMailOutline } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sideImg from '../../assets/images/login-img.png'
 import { LuEye, LuEyeClosed } from 'react-icons/lu'
 import { BiSolidError } from 'react-icons/bi'
 import { RiAccountCircleLine } from 'react-icons/ri'
 import logo from '../../assets/images/Logoo.png'
+import { getAuth, createUserWithEmailAndPassword ,sendEmailVerification ,updateProfile   } from "firebase/auth";
+import { Bounce, toast } from 'react-toastify'
+import errorSound from '../../assets/sound/error.mp3'
 
 
 
@@ -15,8 +18,17 @@ const Register = () => {
   const [input,setInput]         = useState({email:'',pass:'',username:''})
   const [iconColor,setIconColor] = useState({emailColor:'text-[#121826]',passColor:'text-[#121826]',nameColor:'text-[#121826]',buttonColor:'bg-[#121826]',buttonTextColor:'text-[#6C727F]'})
   const [eye,setEye]             = useState(false)
-  const [error,setError]         = useState({email:'transparent',password:'transparent',username:'transparent',auth:false})
-
+  const [error,setError]         = useState({email:'transparent',password:'transparent',username:'transparent',auth:false,authText:'',})
+  const nagigator                = useNavigate()
+  // ============================= making a error sound effect
+  const playErrorSound = ()=>{
+    const sound = new Audio(errorSound)
+    sound.volume = .7
+    sound.play()
+  }
+  // ============================== FireBase variables
+  const auth = getAuth();
+  
   
 
   // ============================ All Functions
@@ -32,10 +44,63 @@ const Register = () => {
     }else if(input.pass == ''){
       setError((prev)=>({...prev,password:'red'}))
     }else{
-      // ========================= 
+      // ======================= transfering data to firebase
+      createUserWithEmailAndPassword(auth, input.email, input.pass)
+        .then((userCredential) => {
+          // Signed up 
+          const user = userCredential.user;
+          // ======================= sending verication email
+          updateProfile(auth.currentUser, {
+            displayName: input.username, 
+            photoURL: "https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
+          }).then(() => {
+            // Profile updated!
+            sendEmailVerification(auth.currentUser)
+            .then(() => {
+              // Email verification sent!
+              // =================== showing success toast
+              toast.success('Email verification sent!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                transition: Bounce,
+                });
+              });
+              // ========= removing the previous error
+              setError((prev)=>({...prev,auth:false,}))
+              // ========= nagigating to homePage
+              nagigator('/auth/login')
+            }).catch((error) => {
+              // An error occurred
+              // ...
+            });
+            
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+
+          if (errorCode == 'auth/email-already-in-use') {
+            setError((prev)=>({...prev,auth:true,}))
+            setError((prev)=>({...prev,authText:'Email already in use, please use other.',}))
+          }
+          if (errorCode == 'auth/invalid-email') {
+            setError((prev)=>({...prev,auth:true,}))
+            setError((prev)=>({...prev,authText:'Please use a valid email',}))
+          }
+          if (errorCode == 'auth/weak-password') {
+            setError((prev)=>({...prev,auth:true,}))
+            setError((prev)=>({...prev,authText:'Password to weak',}))
+          }
+          // === playing the sound
+          playErrorSound()
+        });
     }
   }
-
 
   // ================================ changing icons colors ////////////////////
   useEffect(()=>{
@@ -78,8 +143,10 @@ const Register = () => {
             {
               error.auth&&
               <div className="errorBox">
-                <BiSolidError />
-                <h2>Incorrect username or password!</h2>
+                <h2><BiSolidError />Registration error</h2>
+                <div className="type">
+                  <li>{error.authText}</li>
+                </div>
               </div>
             }
             {/* ============================== userName =================== */}

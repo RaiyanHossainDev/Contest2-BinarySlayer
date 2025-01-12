@@ -1,129 +1,120 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
-import { Link} from 'react-router-dom'
-import { FiSearch } from 'react-icons/fi'
-import { CiShoppingCart } from 'react-icons/ci'
-import { FaRegHeart } from 'react-icons/fa'
+import { Link, useNavigate} from 'react-router-dom'
+import { FiSearch, FiShoppingCart } from 'react-icons/fi'
+import { FaHeart, FaRegHeart, FaRegUser } from 'react-icons/fa'
 import { RiAccountCircle2Line } from 'react-icons/ri'
+import { useDispatch, useSelector } from 'react-redux'
+import { productFilter } from '../../slice/productfiterSlice'
+import { setFilteredProducts, setQuery } from '../../slice/searchSlice'
 
 const Navbar = () => {
     // ===================== custom useStates
+    const [products, setProducts] = useState([]);
+    const dispatch = useDispatch()
     const [searchBarShow,setSearchBarShow] = useState(false)
-
+    const currentUser = useSelector((state)=>state.currentUser.value)
+    const [searchInput, setSearchInput] = useState('');
+    const query = useSelector((state) => state.search.query);
+    const navigate = useNavigate()
+    // Functions
+    useEffect(() => {
+        fetch('https://api.jsonbin.io/v3/b/677d420aad19ca34f8e7076f')
+            .then(response => response.json())
+            .then(json => setProducts(json.record))
+            .catch((error) => console.error('Error fetching products:', error));
+    }, []);
+    const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(setQuery(searchInput.toLowerCase()));
+    const filtered = products.filter((product) => {
+        const matchesKeyword = product.productKeyword?.some((keyword) =>
+            keyword.toLowerCase() === searchInput.toLowerCase()
+        );
+        const nameWords = product.name?.toLowerCase().split(' ') || [];
+        const matchesName = nameWords.some((word) => word === searchInput.toLowerCase());
+        const matchesCategory = searchInput.length >= 3 && 
+            product.productCategory?.toLowerCase().includes(searchInput.toLowerCase());
+        return matchesKeyword || matchesName || matchesCategory;
+    });
+    dispatch(setFilteredProducts(filtered));
+    navigate('/searchResult');
+    };
   return (
-    <nav id='nav'>
-        <div className="container">
-            <div className="menu_row">
-                {/* ================= logo and searchBar start =========== */}
-                <div className=' flex gap-16 items-center'>
-                    <div className="menu_logo">
-                        <Link className=' hidden sm:block' to={'/'}><img src="images/Logoo.png" width={`160px`} alt="" /></Link>
+    <div className="flex flex-col">        
+        <nav id='nav'>
+            <div className="container">
+                <div className="menu_row">
+                    {/* ================= logo and searchBar start =========== */}
+                    <div className=' flex gap-16 items-center'>
+                        <div className="menu_logo">
+                            <Link className='text-2xl font-Poppins font-bold text-secendary hidden sm:block' to={'/'}>Molts</Link>
+                        </div>
+                        <form onSubmit={handleSearch} className="searchBar searchBar1">
+                            <input type="text" onChange={(e) => setSearchInput(e.target.value)} placeholder='Search anything here' />
+                            <button type='submit'><FiSearch /></button>
+                        </form>
+                        <div className={`searchBar searchBar2 ${searchBarShow?'left-[50%]':'left-[-70%]'} transition-all`}>
+                            <input type="text" placeholder='Search anything here' />
+                            <button><FiSearch /></button>
+                        </div>
                     </div>
-                    <div className="searchBar searchBar1">
-                        <input type="text" />
-                        <button><FiSearch /></button>
+                    {/* ================= logo and searchBar end// =========== */}
+                    {/* ================= Login and Register start =========== */}
+                    <div className="authBar">
+                        {
+                            currentUser == null ?
+                            <Link to={'/auth/login'} className="navbar-button">
+                                <FaRegUser />
+                                <div className="navbar-button-text">
+                                    <h3>Account</h3>
+                                    <h4>Login</h4>
+                                </div>
+                            </Link>
+                            :
+                            <div className='flex gap-[10px]'>
+                                <Link to={'/profile'} className="navbar-button !py-[20px]">
+                                    <FaRegUser />
+                                    <div className="navbar-button-text">
+                                        <h3>{currentUser.displayName}</h3>
+                                    </div>
+                                </Link>
+                                <Link to={'/favorite'} className="navbar-button">
+                                    <FaRegHeart />
+                                    <div className="navbar-button-text">
+                                        <h4>Favorite</h4>
+                                        <h3>Items</h3>
+                                    </div>
+                                </Link>
+                                <Link to={'/cart'} className="navbar-button">
+                                    <FiShoppingCart />
+                                    <div className="navbar-button-text">
+                                        <h4>Cart</h4>
+                                        <h3>Items</h3>
+                                    </div>
+                                </Link>
+                            </div>
+                        }
                     </div>
-                    <div className={`searchBar searchBar2 ${searchBarShow?'left-[50%]':'left-[-70%]'} transition-all`}>
-                        <input type="text" />
-                        <button><FiSearch /></button>
-                    </div>
+                    {/* ================= Login and Register end =========== */}
                 </div>
-                {/* ================= logo and searchBar end// =========== */}
-
-                {/* ================= Login and Register start =========== */}
-                <div className="authBar">
-                    <Link to={'/auth/register'}
-                        class="relative inline-flex items-center justify-center px-4 lg:px-8 py-[7px] lg:py-2.5 overflow-hidden tracking-tighter text-white bg-green-800 rounded-md group"
-                        >
-                        <span
-                            class="absolute w-0 h-0 transition-all duration-500 ease-out bg-orange-600 rounded-full group-hover:w-56 group-hover:h-56"
-                        ></span>
-                        <span class="absolute bottom-0 left-0 h-full -ml-2">
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="w-auto h-full opacity-100 object-stretch"
-                            viewBox="0 0 487 487"
-                            >
-                            <path
-                                fill-opacity=".1"
-                                fill-rule="nonzero"
-                                fill="#FFF"
-                                d="M0 .3c67 2.1 134.1 4.3 186.3 37 52.2 32.7 89.6 95.8 112.8 150.6 23.2 54.8 32.3 101.4 61.2 149.9 28.9 48.4 77.7 98.8 126.4 149.2H0V.3z"
-                            ></path>
-                            </svg>
-                        </span>
-                        <span class="absolute top-0 right-0 w-12 h-full -mr-3">
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="object-cover w-full h-full"
-                            viewBox="0 0 487 487"
-                            >
-                            <path
-                                fill-opacity=".1"
-                                fill-rule="nonzero"
-                                fill="#FFF"
-                                d="M487 486.7c-66.1-3.6-132.3-7.3-186.3-37s-95.9-85.3-126.2-137.2c-30.4-51.8-49.3-99.9-76.5-151.4C70.9 109.6 35.6 54.8.3 0H487v486.7z"
-                            ></path>
-                            </svg>
-                        </span>
-                        <span
-                            class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-green-200"
-                        ></span>
-                        <span class="relative text-[15px] lg:text-base font-semibold">Register</span>
-                    </Link>
-                    <Link to={'/auth/login'}
-                        class="relative inline-flex items-center justify-center px-4 lg:px-8 py-[7px] lg:py-2.5 overflow-hidden tracking-tighter text-white bg-orange-800 rounded-md group"
-                        >
-                        <span
-                            class="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-600 rounded-full group-hover:w-56 group-hover:h-56"
-                        ></span>
-                        <span class="absolute bottom-0 left-0 h-full -ml-2">
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="w-auto h-full opacity-100 object-stretch"
-                            viewBox="0 0 487 487"
-                            >
-                            <path
-                                fill-opacity=".1"
-                                fill-rule="nonzero"
-                                fill="#FFF"
-                                d="M0 .3c67 2.1 134.1 4.3 186.3 37 52.2 32.7 89.6 95.8 112.8 150.6 23.2 54.8 32.3 101.4 61.2 149.9 28.9 48.4 77.7 98.8 126.4 149.2H0V.3z"
-                            ></path>
-                            </svg>
-                        </span>
-                        <span class="absolute top-0 right-0 w-12 h-full -mr-3">
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="object-cover w-full h-full"
-                            viewBox="0 0 487 487"
-                            >
-                            <path
-                                fill-opacity=".1"
-                                fill-rule="nonzero"
-                                fill="#FFF"
-                                d="M487 486.7c-66.1-3.6-132.3-7.3-186.3-37s-95.9-85.3-126.2-137.2c-30.4-51.8-49.3-99.9-76.5-151.4C70.9 109.6 35.6 54.8.3 0H487v486.7z"
-                            ></path>
-                            </svg>
-                        </span>
-                        <span
-                            class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-orange-200"
-                        ></span>
-                        <span class="relative text-[15px] lg:text-base font-semibold">Login</span>
-                    </Link>
-                </div>
-                {/* ================= Login and Register end// =========== */}
-
-                {/* ================= buttons start ====================== */}
-                <div className="mneu_buttons">
-                    <button onClick={()=>setSearchBarShow(!searchBarShow)}><FiSearch/></button>
-                    <Link to='/' ><CiShoppingCart /><span>0</span></Link>
-                    <Link to='/' ><FaRegHeart /><span>0</span></Link>
-                    <Link to='/' ><RiAccountCircle2Line /></Link>
-                </div>
-                {/* ================= buttons end// ====================== */}
             </div>
-        </div>
-    </nav>
+        </nav>
+        <nav id="nav2">
+            <div className="container">
+                <div className="nav2-row">
+                    <li><Link to={"/"}>Home</Link></li>
+                    <li><Link to={"/offer"}>Exclusive offers</Link></li>
+                    <li><Link to={"#"}>New Deals</Link></li>
+                    <li><Link to={"/cart"}>Shopping Cart</Link></li>
+                    <li><Link to={"/category"} onClick={()=>dispatch(productFilter("Electronic"))}>Electronics</Link></li>
+                    <li><Link to={"/category"} onClick={()=>dispatch(productFilter("Beauty"))}>Beauty</Link></li>
+                    <li><Link to={"/category"} onClick={()=>dispatch(productFilter("Furnitures"))}>Furnitures</Link></li>
+                    <li><Link to={"/category"} onClick={()=>dispatch(productFilter("Clothing"))}>Clothings</Link></li>
+                </div>
+            </div>
+        </nav>
+    </div>
   )
 }
 

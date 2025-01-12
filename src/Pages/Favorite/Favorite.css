@@ -1,0 +1,125 @@
+.favorite-heading{
+    @apply
+    pb-[20px]
+    pt-[20px]
+    border-b-[3px]
+    border-dashed
+    border-brandColor
+}
+.favorite-heading h1{
+    @apply
+    font-Playfair
+    font-extrabold
+    text-[28px]
+    text-black
+}
+.favorite-heading h1 span{
+    @apply
+    text-brandColor
+}
+.single-favorite-item{
+    @apply
+    w-full
+    h-[200px]
+    border-[1px]
+    border-gray-300
+    p-[20px]
+    hover:border-brandColor
+    flex
+}
+.favorite-list{
+    @apply
+    flex
+    flex-col
+    gap-[10px]
+    mt-[30px]
+}
+.favorite-image{
+    @apply
+    w-[200px]
+    h-full
+    overflow-hidden
+    flex
+    justify-center
+    items-center
+}
+.favorite-image:hover img{
+    @apply
+    scale-[1200px]
+}
+.favorite-image img{
+    @apply
+    max-w-full
+    max-h-full
+}
+.favorite-text{
+    @apply
+    w-[70%]
+    pl-[20px]
+}
+.favorite-text h2{
+    @apply
+    font-Poppins
+    font-semibold
+    text-[24px]
+    text-black
+    mb-[15px]
+}
+.favorite-text p{
+    @apply
+    font-Poppins
+    font-normal
+    text-[16px]
+    text-[#686868]
+    mb-[15px]
+    break-words
+}
+.favorite-info{
+    @apply
+    w-[20%]
+    flex
+    items-end
+    justify-between
+    pr-[40px]
+    flex-col
+}
+.favorite-info h2{
+    @apply
+    font-Poppins
+    font-semibold
+    text-[24px]
+    text-green-500
+}
+.favorite-info button{
+    @apply
+    font-Poppins
+    font-bold
+    text-[16px]
+    text-brandColor
+    py-[10px]
+    px-[20px]
+    border-[2px]
+    border-brandColor
+    flex
+    items-center
+    gap-[5px]
+    hover:bg-brandColor
+    hover:text-white
+    transition-all
+}
+.favorite-info .favorite-remove{
+    @apply
+    font-Poppins
+    font-semibold
+    text-[14px]
+    text-red-600
+    flex gap-[5px]
+    items-center
+    py-[2px]
+    px-[10px]
+    border-[2px]
+    border-red-600
+    hover:bg-red-600
+    hover:text-white
+    transition-all
+}

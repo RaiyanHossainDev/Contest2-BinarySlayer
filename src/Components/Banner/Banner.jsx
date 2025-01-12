@@ -45,7 +45,7 @@ const Banner = () => {
                             <div className="banner-single-slide2">
                                 <img src="images/ad1.jpg" alt="" />
                             </div>
-                    </Link>
+                        </Link>
                 </div>
             </div>
             <div className="service">

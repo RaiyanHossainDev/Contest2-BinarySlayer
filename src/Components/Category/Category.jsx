@@ -4,15 +4,18 @@ import { Link } from 'react-router-dom'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useDispatch } from 'react-redux';
+import { productFilter } from '../../slice/productfiterSlice';
 
 const Category = () => {
-var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-};
+    const dispatch = useDispatch()
+    var settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+    };
 return (
     <section id='category'>
         <div className="container">
@@ -24,7 +27,7 @@ return (
                     <div className='category-wrap'>
                         <div className="category-card">
                             <div className="category-overlay">
-                                <Link to={"#"}>T-shirt</Link>
+                                <Link to={"/category"} onClick={()=>dispatch(productFilter("Clothing"))}>T-shirt</Link>
                             </div>
                             <div className="round"></div>
                             <img src="images/category1.png" alt="category" />
@@ -33,7 +36,7 @@ return (
                     <div className='category-wrap'>
                         <div className="category-card">
                             <div className="category-overlay">
-                                <Link to={"#"}>Electronics</Link>
+                                <Link to={"/category"} onClick={()=>dispatch(productFilter("Electronic"))}>Electronics</Link>
                             </div>
                             <img src="images/category2.png" alt="category" />
                             <div className="round"></div>
@@ -42,7 +45,7 @@ return (
                     <div className='category-wrap'>
                         <div className="category-card">
                             <div className="category-overlay">
-                                <Link to={"#"}>Beauty</Link>
+                                <Link to={"/category"} onClick={()=>dispatch(productFilter("Beauty"))}>Beauty</Link>
                             </div>
                             <img src="images/category3.png" alt="category" />
                             <div className="round"></div>
@@ -51,7 +54,7 @@ return (
                     <div className='category-wrap'>
                         <div className="category-card">
                             <div className="category-overlay">
-                                <Link to={"#"}>Furnitures</Link>
+                                <Link to={"/category"} onClick={()=>dispatch(productFilter("Furnitures"))}>Furnitures</Link>
                             </div>
                             <img src="images/category4.png" alt="category" />
                             <div className="round"></div>
@@ -60,7 +63,7 @@ return (
                     <div className='category-wrap'>
                         <div className="category-card">
                             <div className="category-overlay">
-                                <Link to={"#"}>Cars</Link>
+                                <Link to={"/category"} onClick={()=>dispatch(productFilter("Cars"))}>Cars</Link>
                             </div>
                             <img src="images/category5.png" alt="category" />
                             <div className="round"></div>
