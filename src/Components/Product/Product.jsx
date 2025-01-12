@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Product.css'
-import Slider from 'react-slick'
 import { Link } from 'react-router-dom'
 import { FaPlus } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
@@ -18,19 +17,23 @@ const Product = () => {
   // ======================================== All function
   // ========== product function
   let handleProduct = (item)=>{
-    dispatcher(productData(item))
+    console.log('click to hoitase');
+    
     localStorage.setItem('product',JSON.stringify(item))
+    dispatcher(productData(item))
   }
 
 
 
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-};
+  // ========================= API
+  const [productData,setProductData] = useState([])
+  useEffect(()=>{
+      fetch('https://api.jsonbin.io/v3/b/677d420aad19ca34f8e7076f')
+          .then(response => response.json())
+          .then(json => setProductData(json.record))
+  },[])
+
+
   return (
     <section id='product'>
         <div className="container">
@@ -38,108 +41,27 @@ const Product = () => {
                 <h2>Our Latest <span>Products</span></h2>
             </div>
             <div className="product-row">
-              <Link to={"/product"}>
-                <div className="product-card">
-                  <div className="product-img">
-                    <div className="round"></div>
-                    <img src="images/category1.png" alt="category" />
-                  </div>
-                  <div className="product-body">
-                    <h2>Black T-shirt</h2>
-                    <p>This is a black T-shirta wdaw da dawdawdjkawdjakjwad a wda wdj adj awj awdj</p>
-                    <h3>$8.99</h3>
-                    <button><Link to={'/'}><FaPlus /> Add to Cart</Link></button>
-                  </div>
-                </div>
-              </Link>
-              <Link to={"/product"}>
-                <div className="product-card">
-                  <div className="product-img">
-                    <div className="round"></div>
-                    <img src="images/category1.png" alt="category" />
-                  </div>
-                  <div className="product-body">
-                    <h2>Black T-shirt</h2>
-                    <p>This is a black T-shirta wdaw da dawdawdjkawdjakjwad a wda wdj adj awj awdj</p>
-                    <h3>$8.99</h3>
-                    <button><FaPlus /> Add to Cart</button>
-                  </div>
-                </div>
-              </Link>
-              <Link to={"/product"}>
-                <div className="product-card">
-                  <div className="product-img">
-                    <div className="round"></div>
-                    <img src="images/category1.png" alt="category" />
-                  </div>
-                  <div className="product-body">
-                    <h2>Black T-shirt</h2>
-                    <p>This is a black T-shirta wdaw da dawdawdjkawdjakjwad a wda wdj adj awj awdj</p>
-                    <h3>$8.99</h3>
-                    <button><FaPlus /> Add to Cart</button>
-                  </div>
-                </div>
-              </Link>
-              <Link to={"/product"}>
-                <div className="product-card">
-                  <div className="product-img">
-                    <div className="round"></div>
-                    <img src="images/category1.png" alt="category" />
-                  </div>
-                  <div className="product-body">
-                    <h2>Black T-shirt</h2>
-                    <p>This is a black T-shirta wdaw da dawdawdjkawdjakjwad a wda wdj adj awj awdj</p>
-                    <h3>$8.99</h3>
-                    <button><FaPlus /> Add to Cart</button>
-                  </div>
-                </div>
-              </Link>
-              <Link to={"/product"}>
-                <div className="product-card">
-                  <div className="product-img">
-                    <div className="round"></div>
-                    <img src="images/category1.png" alt="category" />
-                  </div>
-                  <div className="product-body">
-                    <h2>Black T-shirt</h2>
-                    <p>This is a black T-shirta wdaw da dawdawdjkawdjakjwad a wda wdj adj awj awdj</p>
-                    <h3>$8.99</h3>
-                    <button><FaPlus /> Add to Cart</button>
-                  </div>
-                </div>
-              </Link>
-              <Link to={"/product"}>
-                <div className="product-card">
-                  <div className="product-img">
-                    <div className="round"></div>
-                    <img src="images/category1.png" alt="category" />
-                  </div>
-                  <div className="product-body">
-                    <h2>Black T-shirt</h2>
-                    <p>This is a black T-shirta wdaw da dawdawdjkawdjakjwad a wda wdj adj awj awdj</p>
-                    <h3>$8.99</h3>
-                    <button><FaPlus /> Add to Cart</button>
-                  </div>
-                </div>
-              </Link>
-              <Link to={"/product"}>
-                <div className="product-card">
-                  <div className="product-img">
-                    <div className="round"></div>
-                    <img src="images/category1.png" alt="category" />
-                  </div>
-                  <div className="product-body">
-                    <h2>Black T-shirt</h2>
-                    <p>This is a black T-shirta wdaw da dawdawdjkawdjakjwad a wda wdj adj awj awdj</p>
-                    <h3>$8.99</h3>
-                    <button><FaPlus /> Add to Cart</button>
-                  </div>
-                </div>
-              </Link>
+              {
+                productData.map((item)=>(
+                  <Link onClick={()=>handleProduct(item)} key={item.productId} to={"/product"}>
+                    <div className="product-card">
+                      <div className="product-img">
+                        <div className="round"></div>
+                        <img src={item.productImage} alt="category" />
+                      </div>
+                      <div className="product-body">
+                        <h2> {item.productName} </h2>
+                        <p>{item.productDescription}</p>
+                        <h3>{item.price}$</h3>
+                        <button><Link to={'/'}><FaPlus /> Add to Cart</Link></button>
+                      </div>
+                    </div>
+                </Link>
+                ))
+              }
             </div>
         </div>
     </section>
   )
 }
-
 export default Product

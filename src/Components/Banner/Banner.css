@@ -1,7 +1,3 @@
-#banner{
-    @apply
-    mt-[50px]
-}
 .banner-row{
     @apply
     px-[200px]

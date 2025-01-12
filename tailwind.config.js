@@ -9,7 +9,7 @@ export default {
       colors: {
         'brandColor': '#0071DC',
         'brandColorLight': '#AAD5FF',
-        'secendary' : '#FF5722',
+        'secendary' : '#ffd620',
         'highLight' : '#CDDC39',
         'brandBg' : '#F2F8FD'
       },

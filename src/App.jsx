@@ -9,6 +9,12 @@ import LayoutAuth from './Layout/LayoutAuth'
 import app from './firebase.config'
 import { ToastContainer } from 'react-toastify'
 import SingleProduct from './Components/SingleProduct/SingleProduct'
+import Cart from './Pages/Cart/Cart'
+import Favorite from './Pages/Favorite/Favorite'
+import CategoryPage from './Pages/CategoryPage/CategoryPage'
+import Offers from './Pages/OffersPage/OffersPage'
+import SearchResult from './Pages/SearchResult/SearchResult'
+
 
 function App() {
   const router = createBrowserRouter(
@@ -16,11 +22,16 @@ function App() {
       <Route>
         <Route path='/' element={<LayoutOne/>}>
           <Route index element={<Home/>} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/favorite' element={<Favorite />} />
+          <Route path='/category' element={<CategoryPage />} />
+          <Route path='/offer' element={<Offers />} />
+          <Route path='/searchResult' element={<SearchResult />} />
           <Route path='/Product' element={<SingleProduct/>} />
         </Route>
-        <Route path='/auth' element={<LayoutAuth/>}>
-          <Route path='/auth/login' element={<Login/>} />
-          <Route path='/auth/register' element={<Register/>} />
+        <Route path='/auth' element={<LayoutAuth />}>
+          <Route path='/auth/login' element={<Login />} />
+          <Route path='/auth/register' element={<Register />} />
         </Route>
       </Route>
     )

@@ -3,35 +3,25 @@ import './SingleProduct.css'
 import { TiStarFullOutline } from "react-icons/ti";
 import { CiHeart, CiShoppingCart } from 'react-icons/ci';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
+import Viewer from "react-viewer";
 
 
-const SingleProduct = () => {
+const SingleProduct = ({item}) => {
+    const [visible, setVisible] = useState(false);
+    
+
+    // =========== viewer plugin vari
     const [zoomStyle, setZoomStyle] = useState({});
-    const [cover,setCover]          = useState('images/singleProductCover.jpg')
 
 
+    // ========================== Redux variables
+    const searchProduct  = useSelector(state=>state.search.value)
+    const currentProduct = useSelector(state => state.currentProduct?.value)
+    const [cover,setCover]          = useState(item?item.productImage:currentProduct?.productImage)
 
 
     
-
-
-
-
-    // ============================================== Zoom Function
-    const handleMouseMove = (e) => {
-        const { left, top, width, height } = e.target.getBoundingClientRect();
-        const x = ((e.pageX - left) / width) * 100;
-        const y = ((e.pageY - top) / height) * 100;
-
-        setZoomStyle({
-        transformOrigin: `${x}% ${y}%`,
-        transform: "scale(2)", // Adjust zoom level
-        });
-    };
-
-    const handleMouseLeave = () => {
-        setZoomStyle({ transform: "scale(1)", transformOrigin: "center center" });
-    };
 
 
   return (
@@ -40,27 +30,23 @@ const SingleProduct = () => {
             <div className="mainProduct_row">
                 <div className="product_image">
                     <div className="cover">
-                            <div
-                            className="zoom-container"
-                            onMouseMove={handleMouseMove}
-                            onMouseLeave={handleMouseLeave}
-                            >
                             <img
-                                src={`${cover}`}
+                                src={item?item.productImage:currentProduct?.productImage}
                                 alt="Zoomable"
-                                className="zoom-image"
-                                style={zoomStyle}
+                                onClick={() => setVisible(true)}
+                                style={{ cursor: "pointer" }}
                             />
-                            </div>
-                    </div>
-                    <div className="imageSelection">
-                        <img onClick={()=>setCover('images/singleProductCover.jpg')} src="images/singleProductCover.jpg" alt="" />
-                        <img onClick={()=>setCover('images/selection.jpg')} src="images/selection.jpg" alt="" />
+                            <Viewer
+                                visible={visible}
+                                onClose={() => setVisible(false)}
+                                images={[{ src: item?item.productImage:currentProduct?.productImage, alt: "Zoomed" }]}
+                                zoomable // Enable zoom
+                            />
                     </div>
                 </div>
                 <div className="product_text">
                     <div className="title">
-                        <h1>Floating Phone</h1>
+                        <h1>{item?item.productName:currentProduct?.productName}</h1>
                         <div className="review">
                             <TiStarFullOutline />
                             <TiStarFullOutline />
@@ -69,13 +55,11 @@ const SingleProduct = () => {
                             <TiStarFullOutline />
                         </div>
                         <h2 className="price">
-                            $1,139.33
+                           {item?item.price:currentProduct?.price}$
                         </h2>
                     </div>
                     <p className="descripttion">
-                        Met minim Mollie non desert Alamo est sit cliquey dolor 
-                        do met sent. RELIT official consequent door ENIM RELIT Mollie. 
-                        Excitation venial consequent sent nostrum met.
+                       {item?item.productDescription:currentProduct?.productDescription}
                     </p>
                     <div className="line"/>
                     <div className="product_buttons">

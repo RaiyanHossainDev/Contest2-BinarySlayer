@@ -8,10 +8,13 @@ const LayoutOne = () => {
   const currentUser = useSelector(state=>state.currentUser.value)
   const navigator = useNavigate()
 
+  
   return (
     <div>
         <Navbar/>
-        <Outlet/>
+        <div className="mt-[180px]">
+          <Outlet/>
+        </div>
     </div>
   )
 }

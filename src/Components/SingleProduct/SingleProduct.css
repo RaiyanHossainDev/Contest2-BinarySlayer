@@ -16,8 +16,7 @@
 }
   
 .product_image .cover .zoom-container .zoom-image {
-  width: 100%;
-  height: 100%;
+  width: 506px;
   transition: transform 0.2s ease;
 }
 

@@ -8,3 +8,6 @@ body{
     @apply
     bg-[#f7f7f7]
 }
+li{
+    list-style-type: none;
+}
