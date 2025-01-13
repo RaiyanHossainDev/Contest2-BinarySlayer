@@ -7,6 +7,7 @@ import SingleProduct from '../../Components/SingleProduct/SingleProduct'
 
 const searchResult = () => {
     const searchProducts = useSelector((state)=>state.currentProduct.value)
+    window.scrollTo(0, 0)
   return (
     <div>
         <div className="container">

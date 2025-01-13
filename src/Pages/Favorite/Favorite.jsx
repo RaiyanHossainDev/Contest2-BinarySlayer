@@ -16,14 +16,14 @@ const Favorite = () => {
             let array = []
             snapshot.forEach((item)=>{
                 if (item.val().userId == currentUser.uid) {
-                    array.push(item.val())
+                    array.push({...item.val(),key:item.key})
                 }
             })
             setCartData(array)
         });
     },[])
     const handleFavRemove = (currentProduct)=>{
-        remove(ref(db, 'Favorite/' + currentProduct.productId))
+        remove(ref(db, 'Favorite/' + currentProduct.key))
     }
     useEffect(() => {
         const db = getDatabase();
@@ -37,7 +37,7 @@ const Favorite = () => {
     const handleAddToCart = (currentProduct) => {
         if (currentUser == null) {
         toast.error('User not logged in', {
-            position: "top-right",
+            position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: false,
@@ -52,7 +52,7 @@ const Favorite = () => {
         const alreadyInCart = localCart.some(item => item.productId === currentProduct.productId);
         if (alreadyInCart) {
         toast.error('You already added this to your cart', {
-            position: "top-right",
+            position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: false,
@@ -76,7 +76,7 @@ const Favorite = () => {
         });
         setLocalCart(prevCart => [...prevCart, currentProduct]);
         toast.success('New item added to your cart', {
-            position: "top-right",
+            position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: false,
@@ -88,6 +88,7 @@ const Favorite = () => {
         });
         }
     };
+    window.scrollTo(0, 0)
   return (
     <div>
         <div className="container">

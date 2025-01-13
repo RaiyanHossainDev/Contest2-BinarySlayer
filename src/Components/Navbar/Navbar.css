@@ -49,6 +49,38 @@
     rounded-full
     hover:bg-[#0f5392]
     transition-all
+    relative
+}
+.navbar-button:hover .account-dropdown{
+    @apply
+    z-[1]
+    top-[60px]
+    opacity-100
+}
+.navbar-button .account-dropdown{
+    @apply
+    w-full
+    absolute
+    right-[-10px]
+    bg-white
+    rounded-sm
+    hover:bg-red-100
+    p-[10px]
+    transition-all
+    top-0
+    z-[-1]
+    opacity-0
+    duration-300
+}
+.navbar-button .account-dropdown li a{
+    @apply
+    font-Poppins
+    font-semibold
+    text-[14px]
+    text-red-500
+    text-center
+    w-full
+    block
 }
 .navbar-button svg{
     @apply
@@ -79,7 +111,7 @@
     bg-[#d5ebff]
     fixed
     top-[96px]
-    z-[99]
+    z-[98]
     py-[10px]
 }
 .nav2-row{

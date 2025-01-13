@@ -33,7 +33,7 @@ const Navbar = () => {
         const matchesKeyword = product.productKeyword?.some((keyword) =>
             keyword.toLowerCase() === searchInput.toLowerCase()
         );
-        const nameWords = product.name?.toLowerCase().split(' ') || [];
+        const nameWords = product.productName?.toLowerCase().split(' ') || [];
         const matchesName = nameWords.some((word) => word === searchInput.toLowerCase());
         const matchesCategory = searchInput.length >= 3 && 
             product.productCategory?.toLowerCase().includes(searchInput.toLowerCase());
@@ -43,6 +43,11 @@ const Navbar = () => {
     dispatch(productData(filtered));
     navigate('/searchResult');
     };
+    const handleLogOut = ()=>{
+        localStorage.removeItem('user')
+        navigate('/')
+        window.location.reload()
+    }
   return (
     <div className="flex flex-col">        
         <nav id='nav'>
@@ -76,12 +81,6 @@ const Navbar = () => {
                             </Link>
                             :
                             <div className='flex gap-[10px]'>
-                                <Link to={'/profile'} className="navbar-button !py-[20px]">
-                                    <FaRegUser />
-                                    <div className="navbar-button-text">
-                                        <h3>{currentUser.displayName}</h3>
-                                    </div>
-                                </Link>
                                 <Link to={'/favorite'} className="navbar-button">
                                     <FaRegHeart />
                                     <div className="navbar-button-text">
@@ -94,6 +93,17 @@ const Navbar = () => {
                                     <div className="navbar-button-text">
                                         <h4>Cart</h4>
                                         <h3>Items</h3>
+                                    </div>
+                                </Link>
+                                <Link to={'/'} className="navbar-button !py-[20px]">
+                                    <FaRegUser />
+                                    <div className="navbar-button-text">
+                                        <h3>{currentUser.displayName}</h3>
+                                    </div>
+                                    <div className="account-dropdown">
+                                        <li>
+                                            <Link className='logout' onClick={handleLogOut}>Logout</Link>
+                                        </li>
                                     </div>
                                 </Link>
                             </div>

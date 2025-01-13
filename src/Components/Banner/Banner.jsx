@@ -25,12 +25,12 @@ const Banner = () => {
                     <Slider {...settings}>
                         <Link className='inline-block' to={"#"}>
                             <div className="banner-single-slide">
-                                <img src="images/discount.jpg" alt="" />
+                                <img src="images/banner1.jpg" alt="" />
                             </div>
                         </Link>
                         <Link className='inline-block' to={"#"}>
                             <div className="banner-single-slide">
-                                <img src="images/discount1.jpg" alt="" />
+                                <img src="images/banner2.jpg" alt="" />
                             </div>
                         </Link>
                         <Link className='inline-block' to={"#"}>

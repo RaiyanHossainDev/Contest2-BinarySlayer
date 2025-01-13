@@ -7,7 +7,8 @@
         "productCategory": "Clothing",
         "productDiscount": null,
         "price": 29.99,
-        "productKeyword": ["men's shirt", "casual shirt", "shirt for men", "men's clothing", "button-up shirt","shirt"]
+        "productKeyword": ["men's shirt", "casual shirt", "shirt for men", "men's clothing", "button-up shirt","shirt"],
+        "productRating": 5
     },
     {
         "productName": "Smartphone 12 Pro",
@@ -17,7 +18,8 @@
         "productCategory": "Electronic",
         "productDiscount": "Black Friday",
         "price": 999.99,
-        "productKeyword": ["smartphone", "12 Pro", "mobile phone", "smartphone 12", "Pro phone", "latest smartphone", "12 Pro mobile","phone","mobile"]
+        "productKeyword": ["smartphone", "12 Pro", "mobile phone", "smartphone 12", "Pro phone", "latest smartphone", "12 Pro mobile","phone","mobile"],
+        "productRating": 4
     },
     {
         "productName": "Luxury Lipstick Set",
@@ -27,7 +29,8 @@
         "productCategory": "Beauty",
         "productDiscount": null,
         "price": 49.99,
-        "productKeyword": ["luxury lipstick", "lipstick set", "premium lipstick", "makeup set", "lip color", "high-end lipstick", "lipstick gift set","lipstick"]
+        "productKeyword": ["luxury lipstick", "lipstick set", "premium lipstick", "makeup set", "lip color", "high-end lipstick", "lipstick gift set","lipstick"],
+        "productRating": 4
     },
     {
         "productName": "Modern Sofa",
@@ -37,7 +40,8 @@
         "productCategory": "Furnitures",
         "productDiscount": null,
         "price": 499.99,
-        "productKeyword": ["modern sofa", "contemporary sofa", "living room furniture", "stylish sofa", "modern couch", "comfortable sofa", "home decor sofa","sofa"]
+        "productKeyword": ["modern sofa", "contemporary sofa", "living room furniture", "stylish sofa", "modern couch", "comfortable sofa", "home decor sofa","sofa"],
+        "productRating": 4
     },
     {
         "productName": "Sports Sedan",
@@ -47,7 +51,8 @@
         "productCategory": "Cars",
         "productDiscount": "Black Friday",
         "price": 35999.99,
-        "productKeyword": ["sports sedan", "luxury sedan", "performance car", "sports car", "sedan with speed", "modern sedan", "fast sedan", "high-performance vehicle","car"]
+        "productKeyword": ["sports sedan", "luxury sedan", "performance car", "sports car", "sedan with speed", "modern sedan", "fast sedan", "high-performance vehicle","car"],
+        "productRating": 5
     },
     {
         "productName": "Women's Evening Gown",
@@ -57,7 +62,8 @@
         "productCategory": "Clothing",
         "productDiscount": null,
         "price": 89.99,
-        "productKeyword": ["women's evening gown", "evening dress", "formal gown", "party dress", "elegant dress", "women's formal wear", "long dress", "dress for women","dress"]
+        "productKeyword": ["women's evening gown", "evening dress", "formal gown", "party dress", "elegant dress", "women's formal wear", "long dress", "dress for women","dress"],
+        "productRating": 3
     },
     {
         "productName": "4K Ultra HD TV",
@@ -67,7 +73,8 @@
         "productCategory": "Electronic",
         "productDiscount": "Christmas",
         "price": 699.99,
-        "productKeyword": ["4K TV", "Ultra HD TV", "smart TV", "4K Ultra HD", "high-definition television", "HDR TV", "home entertainment", "smart home TV","tv"]
+        "productKeyword": ["4K TV", "Ultra HD TV", "smart TV", "4K Ultra HD", "high-definition television", "HDR TV", "home entertainment", "smart home TV","tv"],
+        "productRating": 4
     },
     {
         "productName": "Skincare Essentials Kit",
@@ -77,7 +84,8 @@
         "productCategory": "Beauty",
         "productDiscount": null,
         "price": 39.99,
-        "productKeyword": ["skincare kit", "essentials kit", "skincare products", "skin care essentials", "beauty kit", "moisturizers", "cleanser", "serum", "toner","skincare"]
+        "productKeyword": ["skincare kit", "essentials kit", "skincare products", "skin care essentials", "beauty kit", "moisturizers", "cleanser", "serum", "toner","skincare"],
+        "productRating": 5
     },
     {
         "productName": "Wooden Dining Table",
@@ -87,7 +95,8 @@
         "productCategory": "Furnitures",
         "productDiscount": "Eid ul Fitr",
         "price": 799.99,
-        "productKeyword": ["wooden dining table", "dining table", "solid wood table", "furniture", "dining room table", "rustic table", "table for dining", "wood dining table","table"]
+        "productKeyword": ["wooden dining table", "dining table", "solid wood table", "furniture", "dining room table", "rustic table", "table for dining", "wood dining table","table"],
+        "productRating": 4
     },
     {
         "productName": "Luxury SUV",
@@ -97,7 +106,7 @@
         "productCategory": "Cars",
         "productDiscount": null,
         "price": 45999.99,
-        "productKeyword": ["luxury SUV", "premium SUV", "high-end SUV", "sports utility vehicle", "spacious SUV", "luxurious crossover", "family SUV", "luxury car","car"]
+        "productKeyword": ["luxury SUV", "premium SUV", "high-end SUV", "sports utility vehicle", "spacious SUV", "luxurious crossover", "family SUV", "luxury car","car"],
     },
     {
         "productName": "Men's Leather Jacket",
@@ -107,7 +116,7 @@
         "productCategory": "Clothing",
         "productDiscount": null,
         "price": 129.99,
-        "productKeyword": ["men's leather jacket", "leather jacket", "men's outerwear", "biker jacket", "casual jacket", "fashion jacket", "stylish coat", "jacket for men","jacket"]
+        "productKeyword": ["men's leather jacket", "leather jacket", "men's outerwear", "biker jacket", "casual jacket", "fashion jacket", "stylish coat", "jacket for men","jacket"],
     },
     {
         "productName": "Wireless Earbuds",
@@ -117,7 +126,7 @@
         "productCategory": "Electronic",
         "productDiscount": null,
         "price": 79.99,
-        "productKeyword": ["wireless earbuds", "Bluetooth earbuds", "true wireless earbuds", "earphones", "wireless headphones", "in-ear headphones", "portable audio", "earbud","earbuds"]
+        "productKeyword": ["wireless earbuds", "Bluetooth earbuds", "true wireless earbuds", "earphones", "wireless headphones", "in-ear headphones", "portable audio", "earbud","earbuds"],
     },
     {
         "productName": "Perfume Gift Set",
@@ -127,7 +136,7 @@
         "productCategory": "Beauty",
         "productDiscount": "Christmas",
         "price": 59.99,
-        "productKeyword": ["perfume gift set", "fragrance set", "scent collection", "gift set", "women's perfume", "men's fragrance", "luxury perfume", "perfume gift","perfume"]
+        "productKeyword": ["perfume gift set", "fragrance set", "scent collection", "gift set", "women's perfume", "men's fragrance", "luxury perfume", "perfume gift","perfume"],
     },
     {
         "productName": "Recliner Chair",
@@ -137,7 +146,7 @@
         "productCategory": "Furnitures",
         "productDiscount": null,
         "price": 349.99,
-        "productKeyword": ["recliner chair", "comfortable chair", "reclining chair", "lounge chair", "home furniture", "adjustable chair", "relaxation chair", "chair for relaxation","chair"]
+        "productKeyword": ["recliner chair", "comfortable chair", "reclining chair", "lounge chair", "home furniture", "adjustable chair", "relaxation chair", "chair for relaxation","chair"],
     },
     {
         "productName": "Electric Hatchback",
@@ -147,7 +156,7 @@
         "productCategory": "Cars",
         "productDiscount": "Eid ul Fitr",
         "price": 27999.99,
-        "productKeyword": ["electric hatchback", "electric car", "eco-friendly vehicle", "hatchback", "compact electric car", "sustainable transport", "zero emissions", "car", "vehicle"]
+        "productKeyword": ["electric hatchback", "electric car", "eco-friendly vehicle", "hatchback", "compact electric car", "sustainable transport", "zero emissions", "car", "vehicle"],
     },
     {
         "productName": "Women's Winter Coat",

@@ -12,7 +12,7 @@ const Footer = () => {
                     <img src="images/logo.png" alt="" />
                 </div>
                 <div className="footer_text1">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                    <p>This is a E-commerce website made by Zakin Ghani and Raiyaan Hossain. Spacial thanks to Nahid Hasan.</p>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@ const Footer = () => {
             </div>
             <div className="line1"/>
             <div className="footer_row row3">
-                <h3>Copyright © 2022 BRIX Templates | All Rights Reserved </h3>
+                <h3>Copyright © 2025 Molts | All Rights Reserved</h3>
                 <div className="footer_buttons">
                     <a target='_blank' href={'https://www.facebook.com/profile.php?id=61560189862077'}><FaFacebookF /></a>
                     <a target='_blank'><FaTwitter /></a>

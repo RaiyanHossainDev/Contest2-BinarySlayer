@@ -23,6 +23,7 @@ const Cart = () => {
     const handleCartRemove = (currentProduct)=>{
         remove(ref(db, 'Cart/' + currentProduct.key))
     }
+    window.scrollTo(0, 0)
   return (
     <div>
         <div className="container">

@@ -60,14 +60,14 @@ const Register = () => {
               // Email verification sent!
               // =================== showing success toast
               toast.success('Email verification sent!', {
-                position: "top-right",
+                position: "bottom-center",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: false,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "dark",
+                theme: "colored",
                 transition: Bounce,
                 });
               });

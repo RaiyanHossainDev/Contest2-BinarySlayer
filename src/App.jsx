@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, createRoutesFromChildren, Route, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromChildren, Route, RouterProvider, useLocation } from 'react-router-dom'
 import './App.css'
 import LayoutOne from './Layout/LayoutOne'
 import Home from './Pages/Home'
@@ -8,12 +8,13 @@ import Register from './Components/Register/Register'
 import LayoutAuth from './Layout/LayoutAuth'
 import app from './firebase.config'
 import { ToastContainer } from 'react-toastify'
-import SingleProduct from './Components/SingleProduct/SingleProduct'
 import Cart from './Pages/Cart/Cart'
 import Favorite from './Pages/Favorite/Favorite'
 import CategoryPage from './Pages/CategoryPage/CategoryPage'
 import Offers from './Pages/OffersPage/OffersPage'
 import SearchResult from './Pages/SearchResult/SearchResult'
+import SingleProductPage from './Pages/SingleProductPage/SingleProductPage'
+import NotFound from './Pages/NotFound/NotFound'
 
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
           <Route path='/category' element={<CategoryPage />} />
           <Route path='/offer' element={<Offers />} />
           <Route path='/searchResult' element={<SearchResult />} />
-          <Route path='/Product' element={<SingleProduct/>} />
+          <Route path='/Product' element={<SingleProductPage />} />
+          <Route path='/*' element={<NotFound />} />
         </Route>
         <Route path='/auth' element={<LayoutAuth />}>
           <Route path='/auth/login' element={<Login />} />

@@ -6,6 +6,7 @@ import Product from '../Components/Product/Product'
 import Offers from '../Components/Offers/Offers'
 
 const Home = () => {
+  window.scrollTo(0, 0)
   return (
     <div>
       <Banner />

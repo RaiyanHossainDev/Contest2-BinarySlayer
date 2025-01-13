@@ -54,21 +54,21 @@ const Login = () => {
             setError((prev)=>({...prev,Auth:false}))
             navigator('/')
             toast.success('Login Successfull !', {
-              position: "top-right",
+              position: "bottom-center",
               autoClose: 5000,
               hideProgressBar: false,
               closeOnClick: false,
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
-              theme: "dark",
+              theme: "colored",
               transition: Bounce,
               });
               localStorage.setItem("user",JSON.stringify(user))
               dispatcher(userData(user))
           }else{
             toast.error('Email is not verified', {
-              position: "top-right",
+              position: "bottom-center",
               autoClose: 5000,
               hideProgressBar: false,
               closeOnClick: false,
