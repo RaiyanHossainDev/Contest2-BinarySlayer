@@ -107,6 +107,7 @@
         "productDiscount": null,
         "price": 45999.99,
         "productKeyword": ["luxury SUV", "premium SUV", "high-end SUV", "sports utility vehicle", "spacious SUV", "luxurious crossover", "family SUV", "luxury car","car"],
+        "productRating": 5
     },
     {
         "productName": "Men's Leather Jacket",
@@ -117,6 +118,7 @@
         "productDiscount": null,
         "price": 129.99,
         "productKeyword": ["men's leather jacket", "leather jacket", "men's outerwear", "biker jacket", "casual jacket", "fashion jacket", "stylish coat", "jacket for men","jacket"],
+        "productRating": 3
     },
     {
         "productName": "Wireless Earbuds",
@@ -127,6 +129,7 @@
         "productDiscount": null,
         "price": 79.99,
         "productKeyword": ["wireless earbuds", "Bluetooth earbuds", "true wireless earbuds", "earphones", "wireless headphones", "in-ear headphones", "portable audio", "earbud","earbuds"],
+        "productRating": 4
     },
     {
         "productName": "Perfume Gift Set",
@@ -137,6 +140,7 @@
         "productDiscount": "Christmas",
         "price": 59.99,
         "productKeyword": ["perfume gift set", "fragrance set", "scent collection", "gift set", "women's perfume", "men's fragrance", "luxury perfume", "perfume gift","perfume"],
+        "productRating": 2
     },
     {
         "productName": "Recliner Chair",
@@ -147,6 +151,7 @@
         "productDiscount": null,
         "price": 349.99,
         "productKeyword": ["recliner chair", "comfortable chair", "reclining chair", "lounge chair", "home furniture", "adjustable chair", "relaxation chair", "chair for relaxation","chair"],
+        "productRating": 5
     },
     {
         "productName": "Electric Hatchback",
@@ -157,6 +162,7 @@
         "productDiscount": "Eid ul Fitr",
         "price": 27999.99,
         "productKeyword": ["electric hatchback", "electric car", "eco-friendly vehicle", "hatchback", "compact electric car", "sustainable transport", "zero emissions", "car", "vehicle"],
+        "productRating": 5
     },
     {
         "productName": "Women's Winter Coat",
@@ -166,7 +172,8 @@
         "productCategory": "Clothing",
         "productDiscount": null,
         "price": 99.99,
-        "productKeyword": ["women's winter coat", "winter jacket", "cold weather coat", "ladies coat", "warm coat", "fashion outerwear", " insulated jacket", "coat for women","coat"]
+        "productKeyword": ["women's winter coat", "winter jacket", "cold weather coat", "ladies coat", "warm coat", "fashion outerwear", " insulated jacket", "coat for women","coat"],
+        "productRating": 4
     },
     {
         "productName": "Gaming Laptop",
@@ -176,7 +183,8 @@
         "productCategory": "Electronic",
         "productDiscount": null,
         "price": 1499.99,
-        "productKeyword": ["gaming laptop", "high-performance laptop", "best gaming laptop", "gaming computer", "portable gaming laptop", "gaming device", "gaming laptop","laptop"]
+        "productKeyword": ["gaming laptop", "high-performance laptop", "best gaming laptop", "gaming computer", "portable gaming laptop", "gaming device", "gaming laptop","laptop"],
+        "productRating": 5
     },
     {
         "productName": "Makeup Brush Set",
@@ -186,7 +194,8 @@
         "productCategory": "Beauty",
         "productDiscount": null,
         "price": 24.99,
-        "productKeyword": ["makeup brush set", "cosmetic brushes", "beauty brush set", "makeup tools", "professional makeup brushes", "brush set","brush"]
+        "productKeyword": ["makeup brush set", "cosmetic brushes", "beauty brush set", "makeup tools", "professional makeup brushes", "brush set","brush"],
+        "productRating": 4
     },
     {
         "productName": "Office Desk",
@@ -196,7 +205,8 @@
         "productCategory": "Furnitures",
         "productDiscount": null,
         "price": 249.99,
-        "productKeyword": ["office desk", "writing desk", "home office desk", "computer desk", "workspace desk", "desk for office", "desk for home","desk"]
+        "productKeyword": ["office desk", "writing desk", "home office desk", "computer desk", "workspace desk", "desk for office", "desk for home","desk"],
+        "productRating": 3
     },
     {
         "productName": "Convertible Coupe",
@@ -206,7 +216,8 @@
         "productCategory": "Cars",
         "productDiscount": "Black Friday",
         "price": 41999.99,
-        "productKeyword": ["convertible coupe", "sports convertible", "luxury coupe", "2-door convertible", "stylish coupe", "convertible vehicle", "car"]
+        "productKeyword": ["convertible coupe", "sports convertible", "luxury coupe", "2-door convertible", "stylish coupe", "convertible vehicle", "car"],
+        "productRating": 3
     },
     {
         "productName": "Portable Bluetooth Speaker",
@@ -216,7 +227,8 @@
         "productCategory": "Electronic",
         "productDiscount": null,
         "price": 59.99,
-        "productKeyword": ["portable Bluetooth speaker", "wireless speaker", "Bluetooth speaker", "outdoor speaker", "compact speaker", "speaker for travel","speaker"]
+        "productKeyword": ["portable Bluetooth speaker", "wireless speaker", "Bluetooth speaker", "outdoor speaker", "compact speaker", "speaker for travel","speaker"],
+        "productRating": 4
     },
     {
         "productName": "Ceramic Tea Set",
@@ -226,7 +238,8 @@
         "productCategory": "Furnitures",
         "productDiscount": null,
         "price": 89.99,
-        "productKeyword": ["ceramic tea set", "tea pot", "tea cups", "teapot", "tea accessories", "pot", "tea set","tea"]
+        "productKeyword": ["ceramic tea set", "tea pot", "tea cups", "teapot", "tea accessories", "pot", "tea set","tea"],
+        "productRating": 5
     },
     {
         "productName": "High-Performance Gaming Monitor",
@@ -236,7 +249,8 @@
         "productCategory": "Electronic",
         "productDiscount": "Black Friday",
         "price": 349.99,
-        "productKeyword": ["high-performance gaming monitor", "gaming monitor", "computer monitor", "LED monitor", "144Hz monitor", "display", "screen","monitor"]
+        "productKeyword": ["high-performance gaming monitor", "gaming monitor", "computer monitor", "LED monitor", "144Hz monitor", "display", "screen","monitor"],
+        "productRating": 5
     },
     {
         "productName": "Men's Classic Watch",
@@ -246,7 +260,8 @@
         "productCategory": "Clothing",
         "productDiscount": null,
         "price": 199.99,
-        "productKeyword": ["men's classic watch", "classic watch", "men's wristwatch", "fashion watch", "timepiece", "watch for men","watch"]
+        "productKeyword": ["men's classic watch", "classic watch", "men's wristwatch", "fashion watch", "timepiece", "watch for men","watch"],
+        "productRating": 4
     },
     {
         "productName": "Premium Skincare Kit",
@@ -256,7 +271,8 @@
         "productCategory": "Beauty",
         "productDiscount": null,
         "price": 59.99,
-        "productKeyword": ["premium skincare kit", "skincare kit", "luxury skincare", "beauty kit", "skincare products", "skin care", "kit","skincare"]
+        "productKeyword": ["premium skincare kit", "skincare kit", "luxury skincare", "beauty kit", "skincare products", "skin care", "kit","skincare"],
+        "productRating": 5
     },
     {
         "productName": "Ergonomic Office Chair",
@@ -266,7 +282,8 @@
         "productCategory": "Furnitures",
         "productDiscount": "Eid ul Fitr",
         "price": 289.99,
-        "productKeyword": ["ergonomic office chair", "office chair", "comfortable chair", "desk chair", "supportive chair", "work chair", "chair"]
+        "productKeyword": ["ergonomic office chair", "office chair", "comfortable chair", "desk chair", "supportive chair", "work chair", "chair"],
+        "productRating": 1
     },
     {
         "productName": "Luxury Convertible",
@@ -276,7 +293,8 @@
         "productCategory": "Cars",
         "productDiscount": null,
         "price": 75999.99,
-        "productKeyword": ["luxury convertible", "convertible car", "luxury car", "sports convertible", "high-end convertible", "convertible vehicle", "car"]
+        "productKeyword": ["luxury convertible", "convertible car", "luxury car", "sports convertible", "high-end convertible", "convertible vehicle", "car"],
+        "productRating": 5
     },
     {
         "productName": "Smart Home Speaker",
@@ -286,7 +304,8 @@
         "productCategory": "Electronic",
         "productDiscount": null,
         "price": 129.99,
-        "productKeyword": ["smart home speaker", "smart speaker", "voice-controlled speaker", "home assistant", "Bluetooth speaker", "wireless speaker", "speaker"]
+        "productKeyword": ["smart home speaker", "smart speaker", "voice-controlled speaker", "home assistant", "Bluetooth speaker", "wireless speaker", "speaker"],
+        "productRating": 3
     },
     {
         "productName": "Women's Designer Handbag",
@@ -296,7 +315,8 @@
         "productCategory": "Clothing",
         "productDiscount": "Christmas",
         "price": 299.99,
-        "productKeyword": ["women's designer handbag", "designer handbag", "luxury handbag", "women's purse", "fashion handbag", "handbag", "bag"]
+        "productKeyword": ["women's designer handbag", "designer handbag", "luxury handbag", "women's purse", "fashion handbag", "handbag", "bag"],
+        "productRating": 4
     },
     {
         "productName": "Luxury Fragrance Set",
@@ -306,7 +326,8 @@
         "productCategory": "Beauty",
         "productDiscount": null,
         "price": 89.99,
-        "productKeyword": ["luxury fragrance set", "fragrance set", "perfume set", "designer fragrances", "scent collection", "luxury perfume", "set"]
+        "productKeyword": ["luxury fragrance set", "fragrance set", "perfume set", "designer fragrances", "scent collection", "luxury perfume", "set"],
+        "productRating": 5
     },
     {
         "productName": "Solid Wood Coffee Table",
@@ -316,7 +337,8 @@
         "productCategory": "Furnitures",
         "productDiscount": null,
         "price": 219.99,
-        "productKeyword": ["solid wood coffee table", "coffee table", "wooden coffee table", "living room table", "rustic coffee table", "table", "wood table"]
+        "productKeyword": ["solid wood coffee table", "coffee table", "wooden coffee table", "living room table", "rustic coffee table", "table", "wood table"],
+        "productRating": 4
     },
     {
         "productName": "Compact Electric Car",
@@ -326,7 +348,8 @@
         "productCategory": "Cars",
         "productDiscount": "Black Friday",
         "price": 28999.99,
-        "productKeyword": ["compact electric car", "electric car", "small electric vehicle", "eco-friendly car", "battery-powered car", "car", "vehicle"]
+        "productKeyword": ["compact electric car", "electric car", "small electric vehicle", "eco-friendly car", "battery-powered car", "car", "vehicle"],
+        "productRating": 5
     },
     {
         "productName": "Wireless Charging Pad",
@@ -336,7 +359,8 @@
         "productCategory": "Electronic",
         "productDiscount": null,
         "price": 39.99,
-        "productKeyword": ["wireless charging pad", "wireless charger", "charging pad", "Qi charger", "fast charging pad", "charger", "accessory"]
+        "productKeyword": ["wireless charging pad", "wireless charger", "charging pad", "Qi charger", "fast charging pad", "charger", "accessory"],
+        "productRating": 3
     },
     {
         "productName": "Men's Wool Blazer",
@@ -346,7 +370,8 @@
         "productCategory": "Clothing",
         "productDiscount": null,
         "price": 249.99,
-        "productKeyword": ["men's wool blazer", "wool blazer", "men's blazer", "formal blazer", "men's jacket", "suit jacket", "blazer"]
+        "productKeyword": ["men's wool blazer", "wool blazer", "men's blazer", "formal blazer", "men's jacket", "suit jacket", "blazer"],
+        "productRating": 2
     },
     {
         "productName": "Professional Makeup Palette",
@@ -355,7 +380,9 @@
         "productId": "-MW9b1jRk9xYp7V0Q5yW",
         "productCategory": "Beauty",
         "productDiscount": "Eid ul Fitr",
-        "price": 49.99
+        "price": 49.99,
+        "productKeyword": ["professional makeup palette", "makeup palette", "cosmetic palette", "eye shadow palette", "beauty palette", "makeup set", "palette"],
+        "productRating": 5
     },
     {
         "productName": "Modern Bookshelf",
@@ -364,8 +391,9 @@
         "productId": "-MW9b1kRk0xYn8W1R6zY",
         "productCategory": "Furnitures",
         "productDiscount": null,
-        "price": 189.99,
-        "productKeyword": ["professional makeup palette", "makeup palette", "cosmetic palette", "eye shadow palette", "beauty palette", "makeup set", "palette"]
+        "price": 189.99,    
+        "productKeyword": ["modern bookshelf", "bookshelf", "bookcase", "modern furniture", "furniture", "shelf", "bookcase"],
+        "productRating": 4
     },
     {
         "productName": "Convertible Sports Car",
@@ -375,7 +403,8 @@
         "productCategory": "Cars",
         "productDiscount": null,
         "price": 94999.99,
-        "productKeyword": ["convertible sports car", "sports car", "convertible car", "performance car", "luxury sports car", "high-performance vehicle", "car"]
+        "productKeyword": ["convertible sports car", "sports car", "convertible car", "performance car", "luxury sports car", "high-performance vehicle", "car"],
+        "productRating": 5
     },
     {
         "productName": "Noise-Canceling Headphones",
@@ -385,7 +414,8 @@
         "productCategory": "Electronic",
         "productDiscount": "Christmas",
         "price": 199.99,
-        "productKeyword": ["noise-canceling headphones", "headphones", "over-ear headphones", "wireless headphones", "audio headphones", "earphones", "headset"]
+        "productKeyword": ["noise-canceling headphones", "headphones", "over-ear headphones", "wireless headphones", "audio headphones", "earphones", "headset"],
+        "productRating": 5
     },
     {
         "productName": "Women's Cashmere Sweater",
@@ -395,7 +425,8 @@
         "productCategory": "Clothing",
         "productDiscount": null,
         "price": 129.99,
-        "productKeyword": ["women's cashmere sweater", "cashmere sweater", "women's sweater", "luxury sweater", "knit sweater", "sweater", "jumper"]
+        "productKeyword": ["women's cashmere sweater", "cashmere sweater", "women's sweater", "luxury sweater", "knit sweater", "sweater", "jumper"],
+        "productRating": 4
     },
     {
         "productName": "Deluxe Shaving Kit",
@@ -405,7 +436,8 @@
         "productCategory": "Beauty",
         "productDiscount": null,
         "price": 79.99,
-        "productKeyword": ["deluxe shaving kit", "shaving kit", "grooming kit", "men's shaving set", "shaving essentials", "shaving tools", "kit"]
+        "productKeyword": ["deluxe shaving kit", "shaving kit", "grooming kit", "men's shaving set", "shaving essentials", "shaving tools", "kit"],
+        "productRating": 3
     },
     {
         "productName": "Rustic Dining Chair Set",
@@ -415,6 +447,7 @@
         "productCategory": "Furnitures",
         "productDiscount": null,
         "price": 399.99,
-        "productKeyword": ["rustic dining chair set", "dining chair set", "rustic chairs", "wooden dining chairs", "farmhouse dining chairs", "chair set", "dining furniture"]
+        "productKeyword": ["rustic dining chair set", "dining chair set", "rustic chairs", "wooden dining chairs", "farmhouse dining chairs", "chair set", "dining furniture"],
+        "productRating": 5
     }
 ]

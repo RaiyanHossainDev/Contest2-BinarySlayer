@@ -8,6 +8,8 @@ import Viewer from "react-viewer";
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { getDatabase, onValue, push, ref, set } from "firebase/database";
 import { Slide, toast } from 'react-toastify';
+import { FaHeart, FaRegStar, FaShoppingCart, FaStar } from 'react-icons/fa';
+
 
 
 const SingleProduct = ({item}) => {
@@ -168,6 +170,18 @@ if (alreadyInFavorites) {
     });
 }
 };
+//  ============== Functions
+const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+    if (i <= rating) {
+        stars.push(<FaStar key={i} />);
+    } else {
+        stars.push(<FaRegStar key={i} />);
+    }
+    }
+    return stars;
+};
 
 
 
@@ -202,48 +216,7 @@ if (alreadyInFavorites) {
                     <div className="title">
                         <h1>{item?item.productName:currentProduct?.productName}</h1>
                         <div className="review">
-                            {
-                                item?item.productRating:currentProduct?.productRating == 5&&
-                                <>
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                </>
-                                
-                            }
-                            {
-                                item?item.productRating:currentProduct?.productRating == 4&&
-                                <>
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                </>
-                            }
-                            {
-                                item?item.productRating:currentProduct?.productRating == 3&&
-                                <>
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                </>
-                            }
-                            {
-                                item?item.productRating:currentProduct?.productRating == 2&&
-                                <>
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                </>
-                            }
-                            {
-                                item?item.productRating:currentProduct?.productRating == 1&&
-                                <>
-                                <TiStarFullOutline />
-                                <TiStarFullOutline />
-                                </>
-                            }
+                            {renderStars(item?item.productName:currentProduct?.productRating)}
                         </div>
                         <h2 className="price">
                         {item?item.price:currentProduct?.price}$
