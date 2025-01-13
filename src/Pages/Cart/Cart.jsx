@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Cart.css'
-import { getDatabase, onValue, ref, remove } from "firebase/database";
+import { getDatabase, onValue, ref, remove, update } from "firebase/database";
 import { IoCartOutline } from 'react-icons/io5'
 import { FaMinus, FaPlus, FaRegTrashAlt } from 'react-icons/fa'
 import { useSelector } from 'react-redux';
@@ -8,7 +8,11 @@ import { useSelector } from 'react-redux';
 const Cart = () => {
     const currentUser = useSelector((state)=>state.currentUser.value)
     const [cartData,setCartData] = useState([])
+    const [Product,setCurrentProduct] = useState([])
     const db = getDatabase();
+    // ==
+
+
     useEffect(()=>{
         onValue(ref(db, 'Cart/'), (snapshot) => {
             let array = []
@@ -20,10 +24,39 @@ const Cart = () => {
             setCartData(array)
         });
     },[])
+
     const handleCartRemove = (currentProduct)=>{
         remove(ref(db, 'Cart/' + currentProduct.key))
     }
     window.scrollTo(0, 0)
+
+
+
+    // ============= Function
+    let handleMath = (currentProduct,sign)=>{
+        if (sign === '-') {
+            update(ref(db,'Cart/' + currentProduct.key),{
+                num: currentProduct.num - 1,
+            })
+        }
+        if (sign === '+') {
+            update(ref(db,'Cart/' + currentProduct.key),{
+                num: currentProduct.num + 1,
+            })
+        }
+    }
+    useEffect(()=>{
+        if (Product.num < 1) {
+            console.log('aise');
+            
+            update(ref(db,'Cart/' + Product.key),{
+                num: Product.num + 1,
+            })
+        }
+    },[Product])
+    console.log(Product);
+    
+
   return (
     <div>
         <div className="container">
@@ -51,9 +84,9 @@ const Cart = () => {
                             <h2>${item.price}</h2>
                             <button className='cart-remove' onClick={()=>handleCartRemove(item)}>Remove <FaRegTrashAlt /></button>
                             <div className="cart-count">
-                                <button><FaPlus /></button>
-                                <h3>1</h3>
-                                <button><FaMinus /></button>
+                                <button onClick={()=>{handleMath(item,'+'),setCurrentProduct(item)}}><FaPlus /></button>
+                                <h3>{item.num}</h3>
+                                <button onClick={()=>{handleMath(item,'-'),setCurrentProduct(item)}}><FaMinus /></button>
                             </div>
                         </div>
                     </div>

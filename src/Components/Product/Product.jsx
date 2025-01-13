@@ -11,7 +11,7 @@ const Product = () => {
   const [productData,setProductData] = useState([])
   const [visibleProduct, setVisibleProduct] = useState(20);
   const [allProductCount, setAllProductCount] = useState();
-  console.log(allProductCount)
+
   useEffect(() => {
     fetch("https://api.jsonbin.io/v3/b/677d420aad19ca34f8e7076f")
       .then((response) => response.json())
@@ -20,7 +20,8 @@ const Product = () => {
         setAllProductCount(json.record.length);
       })
   }, [visibleProduct]);
-
+  console.log(productData);
+  
 
   return (
     <section id='product'>

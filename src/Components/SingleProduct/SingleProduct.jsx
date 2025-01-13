@@ -12,25 +12,30 @@ const SingleProduct = ({item}) => {
     const currentUser = useSelector((state)=>state.currentUser.value)
     const [localCart, setLocalCart] = useState([]);
     const [localFavorites, setLocalFavorites] = useState([]);
+    const db = getDatabase();
+
+    console.log(item);
+    
+
     let handleProduct = (item)=>{
         localStorage.setItem('product',JSON.stringify(item))
         dispatcher(productData(item))
     }
     // Add to cart
-const handleAddToCart = (currentProduct) => {
-    if (currentUser == null) {
-        toast.error('User not logged in', {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        transition: Slide,
-        });
-        return;
+    const handleAddToCart = (currentProduct) => {
+        if (currentUser == null) {
+            toast.error('User not logged in', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Slide,
+            });
+            return;
     }
     const alreadyInCart = localCart.some(item => item.productId === currentProduct.productId);
     if (alreadyInCart) {
@@ -45,43 +50,63 @@ const handleAddToCart = (currentProduct) => {
         theme: "colored",
         transition: Slide,
         });
-    } else {
+    }else {
         const db = getDatabase();
         set(push(ref(db, 'Cart/')), {
-        productId: currentProduct.productId,
-        productName: currentProduct.productName,
-        productDescription: currentProduct.productDescription,
-        productImage: currentProduct.productImage,
-        productDiscount: currentProduct.productDiscount || "null",
-        productCategory: currentProduct.productCategory,
-        price: currentProduct.price,
-        userId: currentUser.uid,
+            productId: currentProduct.productId,
+            productName: currentProduct.productName,
+            productDescription: currentProduct.productDescription,
+            productImage: currentProduct.productImage,
+            productDiscount: currentProduct.productDiscount || null,
+            productCategory: currentProduct.productCategory,
+            price: currentProduct.price,
+            userId: currentUser.uid,
+            num: 1,
         });
         setLocalCart(prevCart => [...prevCart, currentProduct]);
         toast.success('New item added to your cart', {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        transition: Slide,
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Slide,
         });
     }
     };
     // Add to favorites
     useEffect(() => {
-    const db = getDatabase();
     const favRef = ref(db, 'Favorite/');
     onValue(favRef, (snapshot) => {
-        const userCart = Object.values(snapshot.val()).filter(
-        item => item.userId === currentUser.uid
-        );
-        setLocalCart(userCart); 
+        let arr = []
+
+        snapshot.forEach((item)=>{
+            if (item.val().userId === currentUser.uid) {
+                arr.push(item.val())
+            }
+        })
+    setLocalFavorites(arr)
+    });
+
+    onValue(ref(db, "Cart/"), (snapshot) => {
+        let arr = []
+
+        snapshot.forEach((item)=>{
+            if (item.val().userId === currentUser.uid) {
+                arr.push(item.val())
+            }
+        })
+        setLocalCart(arr); 
     });
     }, []);
+    console.log(localCart);
+    
+    
+    
+    // ====================== Fav Function
     const handleAddToFav = (currentProduct) => {
     if (currentUser == null) {
         toast.error('User not logged in', {
@@ -114,14 +139,14 @@ const handleAddToCart = (currentProduct) => {
         // Add product to Firebase favorites and update localFavorites state
         const db = getDatabase();
         set(push(ref(db, 'Favorite/')), {
-        productId: currentProduct.productId,
-        productName: currentProduct.productName,
-        productDescription: currentProduct.productDescription,
-        productImage: currentProduct.productImage,
-        productDiscount: currentProduct.productDiscount || "null",
-        productCategory: currentProduct.productCategory,
-        price: currentProduct.price,
-        userId: currentUser.uid,
+            productId: currentProduct.productId,
+            productName: currentProduct.productName,
+            productDescription: currentProduct.productDescription,
+            productImage: currentProduct.productImage,
+            productDiscount: currentProduct.productDiscount || "null",
+            productCategory: currentProduct.productCategory,
+            price: currentProduct.price,
+            userId: currentUser.uid,
         });
         setLocalFavorites(prevFavorites => [...prevFavorites, currentProduct]);
         toast.success('New item added to your favorites', {
@@ -137,6 +162,9 @@ const handleAddToCart = (currentProduct) => {
         });
     }
     };
+
+
+
   return (
     <Link onClick={() => handleProduct(item)} to={"/product"}>
         <div className="product-card">
