@@ -102,7 +102,6 @@ const SingleProduct = ({item}) => {
         setLocalCart(arr); 
     });
     }, []);
-    console.log(localCart);
     
     
     

@@ -36,7 +36,6 @@
 .favorite-image{
     @apply
     w-[200px]
-    h-full
     overflow-hidden
     flex
     justify-center
@@ -48,8 +47,8 @@
 }
 .favorite-image img{
     @apply
-    max-w-full
-    max-h-full
+    w-[200px]
+    h-full
 }
 .favorite-text{
     @apply
