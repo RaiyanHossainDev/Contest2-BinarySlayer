@@ -5,7 +5,6 @@ import { CiHeart, CiShoppingCart } from 'react-icons/ci';
 import { FiShoppingCart } from 'react-icons/fi';
 import { useSelector,useDispatch } from 'react-redux';
 import Viewer from "react-viewer";
-import { FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { getDatabase, onValue, push, ref, set } from "firebase/database";
 import { Slide, toast } from 'react-toastify';
 import { FaHeart, FaRegStar, FaShoppingCart, FaStar } from 'react-icons/fa';
@@ -170,18 +169,18 @@ if (alreadyInFavorites) {
     });
 }
 };
-//  ============== Functions
-const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-    if (i <= rating) {
-        stars.push(<FaStar key={i} />);
-    } else {
-        stars.push(<FaRegStar key={i} />);
-    }
-    }
-    return stars;
-};
+    //  ============== Functions
+    const renderStars = (rating) => {
+        const stars = [];
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars.push(<FaStar key={i} />);
+            } else {
+                stars.push(<FaRegStar key={i} />);
+            }
+        }
+        return stars;
+    };
 
 
 
@@ -216,7 +215,7 @@ const renderStars = (rating) => {
                     <div className="title">
                         <h1>{item?item.productName:currentProduct?.productName}</h1>
                         <div className="review">
-                            {renderStars(item?item.productName:currentProduct?.productRating)}
+                            {renderStars(item?item.productRating : currentProduct?.productRating)}
                         </div>
                         <h2 className="price">
                         {item?item.price:currentProduct?.price}$

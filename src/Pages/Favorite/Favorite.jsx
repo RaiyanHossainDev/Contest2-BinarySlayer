@@ -73,6 +73,7 @@ const Favorite = () => {
             productCategory: currentProduct.productCategory,
             price: currentProduct.price,
             userId: currentUser.uid,
+            num: 1,
         });
         setLocalCart(prevCart => [...prevCart, currentProduct]);
         toast.success('New item added to your cart', {
