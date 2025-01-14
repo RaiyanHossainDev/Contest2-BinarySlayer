@@ -20,7 +20,7 @@ const Banner = () => {
       };
   return (
     <section id='banner'>
-            <div className="banner-row flex justify-center gap-[20px]">
+            <div className="banner-row flex 2xl:justify-center gap-[50px]">
                 <div className="banner-slider w-[900px]">
                     <Slider {...settings}>
                         <Link className='inline-block' to={"#"}>

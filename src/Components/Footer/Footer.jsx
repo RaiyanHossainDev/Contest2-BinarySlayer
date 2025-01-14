@@ -12,7 +12,7 @@ const Footer = () => {
                     <img src="images/logo.png" alt="" />
                 </div>
                 <div className="footer_text1">
-                    <p>This is a E-commerce website made by Zakin Ghani and Raiyaan Hossain. Spacial thanks to Nahid Hasan.</p>
+                    <p>This is a E-commerce website made by Zakin Ghani and Raiyan Hossain. Spacial thanks to Nahid Hasan.</p>
                 </div>
             </div>
         </div>

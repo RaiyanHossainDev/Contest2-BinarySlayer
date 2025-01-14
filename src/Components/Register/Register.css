@@ -1,18 +1,19 @@
 #register {
     @apply flex justify-center items-center h-[100vh] flex-col
-    bg-[#121826]
+    bg-[#121826] px-[40px] sm:px-0
 }
 .register {
     @apply pt-[21px] pb-[42px] px-[30px] bg-[#212936] rounded-[35px]
+    z-[999]
 }
 .register .register_head {
     @apply flex flex-col items-center
 }
 .register .register_head h2 {
-    @apply font-Poppins text-[#B1E457] text-[30px] font-medium
+    @apply font-Poppins text-[#B1E457] sm:text-[30px] font-medium text-[17px]
 }
 .register .register_head h3 {
-    @apply text-[26px] text-[#6C727F] font-medium font-Poppins
+    @apply sm:text-[26px] text-[#6C727F] font-medium font-Poppins text-[15px]
 }
 
 /* ======================///////////////////============ */
@@ -51,20 +52,20 @@
 .register form .userBox .singleUserBox input {
     @apply outline-none border-none bg-transparent
     w-full border-[2px] 
-    text-[20px] text-[#C4C4C4] font-Poppins
+    sm:text-[20px] text-[#C4C4C4] font-Poppins text-[14px]
 }
 .register form .userBox .singleUserBox .eye {
     @apply text-[25px] text-white mr-[16px]
     cursor-pointer
 }
 .register form button {
-    @apply text-[#6C727F] text-[24px] font-medium font-Poppins
-    rounded-[22px] py-[5px]
+    @apply text-[#6C727F] sm:text-[24px] font-medium font-Poppins
+    rounded-[22px] py-[5px] text-[17px]
 }
 
 #register .register_text h4 {
-    @apply text-[18px] font-medium text-white
-    mt-[8px]
+    @apply sm:text-[18px] font-medium text-white
+    mt-[8px] text-[15px]
 }
 #register .register_text h4 a {
     @apply text-[#B1E457]

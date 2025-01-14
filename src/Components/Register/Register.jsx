@@ -132,7 +132,7 @@ const Register = () => {
 
   return (
     <section id='register'>
-      <img src={logo} width={`250px`} className='mb-[25px]' alt="" />
+      <Link to={'/'}><img src={logo} width={`250px`} className='mb-[25px] z-[990]' alt="" /></Link>
       <div className="register">
         <div className="register_head">
           <h2>Create a Molts Account</h2>
@@ -188,7 +188,7 @@ const Register = () => {
           <button className={`${iconColor.buttonColor} ${iconColor.buttonTextColor}`} onClick={(e)=>handleRegister(e)}>Register</button>
         </form>
       </div>
-      <div className="register_text">
+      <div className="register_text z-[999]">
         <h4>Already have an account? <Link to={'/auth/login'}>Login</Link></h4>
       </div>
 

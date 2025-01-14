@@ -2,16 +2,16 @@ footer {
     @apply bg-brandColor
 }
 .footer_row {
-    @apply flex justify-between items-center
+    @apply flex lg:justify-between items-center
 }
 footer .row1 {
-    @apply pb-[72px] pt-[60px] relative
+    @apply pb-[72px] pt-[60px] relative flex-col lg:flex-row gap-[40px]
 }
 footer .row2 {
-    @apply pt-[115px] pb-[98px]
+    @apply pt-[115px] pb-[98px] flex-wrap gap-[50px] lg:gap-0 justify-center lg:justify-between
 }
 footer .row3 {
-    @apply pt-[38px] pb-[34px]
+    @apply pt-[38px] pb-[34px] flex-col lg:flex-row gap-[40px] lg:gap-0
 }
 
 .footer_row .footer_logo img {
@@ -27,7 +27,7 @@ footer .line1 {
 
 
 .footer_row .singleDrop {
-    @apply flex flex-col gap-[40px]
+    @apply flex flex-col gap-[40px] 
 }
 .footer_row .singleDrop h2 {
     @apply font-bold text-[20px] font-Poppins text-white

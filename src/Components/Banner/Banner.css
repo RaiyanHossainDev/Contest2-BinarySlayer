@@ -1,6 +1,6 @@
 .banner-row{
     @apply
-    px-[200px]
+    px-[200px] flex-col 2xl:flex-row items-center
 }
 .banner-single-slide{
     @apply

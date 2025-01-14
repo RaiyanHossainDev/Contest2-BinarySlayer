@@ -20,19 +20,19 @@
 .single-cart-item{
     @apply
     w-full
-    h-[200px]
+
     border-[1px]
     border-gray-300
     p-[20px]
     hover:border-brandColor
-    flex
+    flex flex-col md:flex-row items-center
     relative
 }
 .cart-list{
     @apply
     flex
     flex-col
-    gap-[10px]
+    gap-[30px]
     mt-[30px]
 }
 .cart-image{
@@ -73,7 +73,6 @@
 }
 .cart-info{
     @apply
-    w-[20%]
     flex
     items-end
     justify-between

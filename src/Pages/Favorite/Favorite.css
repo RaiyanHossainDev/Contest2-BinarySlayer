@@ -20,18 +20,17 @@
 .single-favorite-item{
     @apply
     w-full
-    h-[200px]
     border-[1px]
     border-gray-300
     p-[20px]
     hover:border-brandColor
-    flex
+    flex flex-col md:flex-row items-center
 }
 .favorite-list{
     @apply
     flex
     flex-col
-    gap-[10px]
+    gap-[30px]
     mt-[30px]
 }
 .favorite-image{
@@ -76,12 +75,11 @@
 }
 .favorite-info{
     @apply
-    w-[20%]
     flex
     items-end
     justify-between
     pr-[40px]
-    flex-col
+    flex-col gap-3
 }
 .favorite-info h2{
     @apply

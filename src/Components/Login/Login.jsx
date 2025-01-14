@@ -115,7 +115,7 @@ const Login = () => {
   
   return (
     <section id='login'>
-      <img src={logo} width={'250px'} className='mb-[25px]' alt="" />
+      <Link to={'/'}><img src={logo} width={'250px'} className='mb-[25px] z-[9909]' alt="" /></Link>
       <div className="login">
         <div className="login_head">
           <h2>Welcome back! </h2>
@@ -159,7 +159,7 @@ const Login = () => {
           <button className={`${iconColor.buttonColor} ${iconColor.buttonTextColor}`} onClick={(e)=>handleLogin(e)}>Login</button>
         </form>
       </div>
-      <div className="login_text">
+      <div className="login_text z-50">
         <h4>Don`t have an account? <Link to={'/auth/register'}>Register</Link></h4>
       </div>
 
