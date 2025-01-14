@@ -79,7 +79,7 @@ const Cart = () => {
                     <div onClick={()=>handleAddToCheck(item)} className={
                         `
                          single-cart-item
-                         ${Selected.includes(item.productId)&&'!border-[3px] !border-[skyblue]'}
+                         ${Selected.includes(item.productId)&&'!border-[3px] !border-brandColor'}
                         `
                     } key={item.productId}  >
                         {
